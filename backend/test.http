@@ -1,0 +1,193 @@
+### SIGNIN
+POST  http://localhost:1111/signin
+Content-Type: application/json
+
+{
+    "username":"22AD063",
+    "password":"0000"
+}
+
+### POST FORM
+POST  http://localhost:1111/postform
+Content-Type: application/json
+
+{
+    "fy_year": 2005,
+    "month": "apr",
+    "head_cat": "1",
+    "sub_cat": "2",
+    "date": "2005",
+    "received_by":"dwdw",
+    "particulars": "vsv",
+    "bill_no": "sasv",
+    "amount": "avvavd",
+    "departments":"avava",
+    "vehicles":"avavva"
+}
+
+### GENERATE PDF
+GET http://localhost:1111/generatepdf/66a62e1d2ca106709800df55
+
+
+### GET FORM
+GET http://localhost:1111/getforms
+
+### GET FY YEAR ONLY FROM FORM
+GET http://localhost:1111/getfyyearoption
+
+### GET MONTH ONLY FROM FORM
+GET http://localhost:1111/getmonthoption
+
+### GET HEAD CAT
+GET http://localhost:1111/gethead_cat
+
+### GET SUB CAT
+GET http://localhost:1111/getsub_cat
+
+### GET MONTH
+GET http://localhost:1111/getmonth
+
+### GET DEPARTMENT
+GET http://localhost:1111/getdepartment
+
+### GET EMPLOYEE
+GET http://localhost:1111/getemployee
+
+### GET VEHICLE
+GET http://localhost:1111/getvehicle
+
+### GET FY YEAR
+GET http://localhost:1111/getfy_year
+
+### GET FORM BY AMOUNT
+GET http://localhost:1111/amount/11
+
+### GET FORM BY PARTICULARS
+GET http://localhost:1111/particulars/QEF
+
+### GET FORM BY FY YEAR
+GET http://localhost:1111/fy_year/2025
+
+### GET FORM BY MONTH
+GET http://localhost:1111/month/April
+
+### GET FORM BY DATE
+GET http://localhost:1111/date/2024-08-01
+
+### GET FORM BY HEAD CAT NAME
+GET http://localhost:1111/getFormByHeadCatName/Hiring Charges
+
+### GET FORM BY SUB CAT NAME
+GET http://localhost:1111/getFormBySubCatName/Bus Maintenance
+
+### GET FORM BY VEHICLE ID
+GET http://localhost:1111/getFormByVehicleID/1
+
+### GET FORM BY EMPLOYEE ID
+GET http://localhost:1111/getFormByEmployeeID/1
+
+### GET FORM DATA BY FY YEAR AND MONTH 
+GET http://localhost:1111/fy_year_month/2030/April
+
+### TRUE FY YEAR ADMIN 
+POST  http://localhost:1111/settruefyyear
+Content-Type: application/json
+
+{
+    "fy_name":2026
+}
+
+### FLASE FY YEAR ADMIN 
+POST  http://localhost:1111/setfalsefyyear
+Content-Type: application/json
+
+{
+    "fy_name":2026
+}
+
+### TRUE MONTH ADMIN
+POST  http://localhost:1111/setmonthtrue
+Content-Type: application/json
+
+{
+    "month_name":"April"
+}
+
+### FALSE MONTH ADMIN 
+POST  http://localhost:1111/setmonthfalse
+Content-Type: application/json
+
+{
+    "month_name":"April"
+}
+
+### DELETE FORM
+
+DELETE http://localhost:1111/erase/66c9fc7034ddba7a4167bc9d
+
+
+###
+
+PUT http://localhost:1111/modify
+Content-Type: application/json
+
+  {
+    "_id": "66caa54cbb20f3a6d3b33656",
+    "fy_year": 2025,
+    "month": "April",
+    "head_cat": [
+      {
+        "_id": "66a632b82ca106709800df7e",
+        "head_cat_id": 1,
+        "head_cat_name": "Hiring Charges",
+        "head_cat_status": true
+      }
+    ],
+    "sub_cat": [
+      {
+        "_id": "66a631a12ca106709800df6f",
+        "sub_cat_id": 2,
+        "sub_cat_name": "Batta & Allowance",
+        "head_cat_id": 4,
+        "sub_cat_status": true,
+        "spl_id": 0
+      }
+    ],
+    "date": "2024-08-25",
+    "received_by": [
+      {
+        "_id": "66a62e1d2ca106709800df55",
+        "emp_id": 2,
+        "emp_name": "Vetrikanth",
+        "emp_status": "Active"
+      },
+      {
+        "_id": "66a62e1d2ca106709800df57",
+        "emp_id": 4,
+        "emp_name": "Moulee",
+        "emp_status": "Active"
+      }
+    ],
+    "particulars": "vaa",
+    "bill_no": "121212",
+    "departments": null,
+    "amount": "122120",
+    "vehicles": [
+      {
+        "_id": "66a630062ca106709800df69",
+        "vehicle_id": 1,
+        "vehicle_name": "Bus",
+        "vehicle_number": "M20",
+        "vehicle_reg_number": "0000",
+        "spl_id": 0
+      }
+    ],
+    "files": "121212_2024-08-25_654.pdf",
+    "uploads": [
+      "Fundamental Algorithms_ Design And Analysis.pdf",
+      "Cookd.png"
+    ],
+    "__v": 0
+  },
+
+###
