@@ -32,6 +32,11 @@ GET http://localhost:1111/generatepdf/66a62e1d2ca106709800df55
 ### GET FORM
 GET http://localhost:1111/getforms
 
+### GET FORM BY ID
+GET http://localhost:1111/getforms/66ddb0d900b39cdca053f3fa
+
+
+
 ### GET FY YEAR ONLY FROM FORM
 GET http://localhost:1111/getfyyearoption
 
@@ -87,7 +92,7 @@ GET http://localhost:1111/getFormByVehicleID/1
 GET http://localhost:1111/getFormByEmployeeID/1
 
 ### GET FORM DATA BY FY YEAR AND MONTH 
-GET http://localhost:1111/fy_year_month/2030/April
+GET http://localhost:1111/fy_year_month/2025/August
 
 ### TRUE FY YEAR ADMIN 
 POST  http://localhost:1111/settruefyyear
@@ -132,9 +137,9 @@ PUT http://localhost:1111/modify
 Content-Type: application/json
 
   {
-    "_id": "66caa54cbb20f3a6d3b33656",
+    "_id": "66d51562ea1d60a318a1b03e",
     "fy_year": 2025,
-    "month": "April",
+    "month": "February",
     "head_cat": [
       {
         "_id": "66a632b82ca106709800df7e",
@@ -145,49 +150,44 @@ Content-Type: application/json
     ],
     "sub_cat": [
       {
-        "_id": "66a631a12ca106709800df6f",
-        "sub_cat_id": 2,
-        "sub_cat_name": "Batta & Allowance",
+        "_id": "66a631a12ca106709800df6e",
+        "sub_cat_id": 1,
+        "sub_cat_name": "Bus Maintenance",
         "head_cat_id": 4,
         "sub_cat_status": true,
         "spl_id": 0
       }
     ],
-    "date": "2024-08-25",
+    "date": "2024-09-03",
     "received_by": [
       {
-        "_id": "66a62e1d2ca106709800df55",
-        "emp_id": 2,
-        "emp_name": "Vetrikanth",
-        "emp_status": "Active"
-      },
-      {
-        "_id": "66a62e1d2ca106709800df57",
-        "emp_id": 4,
-        "emp_name": "Moulee",
+        "_id": "66a62e1d2ca106709800df56",
+        "emp_id": 3,
+        "emp_name": "Visvak Sena",
         "emp_status": "Active"
       }
     ],
-    "particulars": "vaa",
-    "bill_no": "121212",
+    "particulars": "dharun",
+    "bill_no": "2121",
     "departments": null,
-    "amount": "122120",
+    "amount": "10000",
     "vehicles": [
       {
-        "_id": "66a630062ca106709800df69",
-        "vehicle_id": 1,
-        "vehicle_name": "Bus",
-        "vehicle_number": "M20",
-        "vehicle_reg_number": "0000",
+        "_id": "66a630062ca106709800df6a",
+        "vehicle_id": 2,
+        "vehicle_name": "Bus 2",
+        "vehicle_number": "M21",
+        "vehicle_reg_number": "1111",
         "spl_id": 0
       }
     ],
-    "files": "121212_2024-08-25_654.pdf",
+    "files": "2121_2024-09-03_546.pdf",
     "uploads": [
-      "Fundamental Algorithms_ Design And Analysis.pdf",
-      "Cookd.png"
+      "consolidated-report (41).pdf"
     ],
     "__v": 0
-  },
+  }
 
 ###
+GET http://localhost:1111/date_filter/01-01-2025/03-01-2025
+

@@ -121,6 +121,7 @@ export const Admin = () => {
 
     try {
       await activateMonth(selectedMonth.toLocaleString('default', { month: 'long' }));
+      await fetchData();
     } catch (error) {
       console.error('Error activating month:', error);
     }
@@ -133,6 +134,7 @@ export const Admin = () => {
 
     try {
       await lockMonth(selectedMonth.toLocaleString('default', { month: 'long' }));
+      await fetchData();
     } catch (error) {
       console.error('Error locking month:', error);
     }

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toDate } from 'date-fns';
 
 
 
@@ -37,6 +38,18 @@ export const postform = async (formData, files) => {
     return response.data;
   } catch (error) {
     console.error('Error posting form:', error);
+    throw error;
+  }
+};
+
+// DELETE FORM 
+
+export const deleteFormById = async (id) => {
+  try {
+    const response = await axios.delete(`http://localhost:1111/erase/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting form:', error);
     throw error;
   }
 };
@@ -262,4 +275,82 @@ export const activateMonth = (monthName) => {
 // Lock month
 export const lockMonth = (monthName) => {
   return axios.post(`http://localhost:1111/setmonthfalse`, { month_name: monthName });
+};
+
+// GET FORM BY ID 
+
+export const getFormById = async (formId) => {
+  try {
+    const response = await axios.get(`http://localhost:1111/getforms/${formId}`);
+    console.log('Form fetched successfully:', response.data);
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error('Error response:', error.response.data);
+    } else if (error.request) {
+      console.error('No response received:', error.request);
+    } else {
+      console.error('Error during the request setup:', error.message);
+    }
+    throw error;
+  }
+};
+
+// MODIFY 
+
+export const modifyForm = async (formData, files) => {
+  try {
+    const data = new FormData();
+
+    // Append form fields
+    for (const key in formData) {
+      if (formData.hasOwnProperty(key)) {
+        const value = formData[key];
+        // Check if the value is an array and stringify it
+        if (Array.isArray(value)) {
+          data.append(key, JSON.stringify(value));
+        } else {
+          data.append(key, value);
+        }
+      }
+    }
+
+    // Append files only if files exist
+    if (files && files.length > 0) {
+      files.forEach((file) => {
+        data.append('files', file);
+      });
+    }
+
+    // Put form data to the server
+    const response = await axios.put('http://localhost:1111/modify', data, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error('Error response:', error.response.data); // Backend returned error response
+    } else if (error.request) {
+      console.error('No response received:', error.request); // Request made but no response
+    } else {
+      console.error('Error during the request setup:', error.message); // Error in setting up the request
+    }
+    throw error;
+  }
+};
+
+
+//fiter by date in consolidate
+export const dateFilter = async (formattedFDate, formattedTDate) => {
+  try {
+    const response = await axios.get(`http://localhost:1111/date_filter/${formattedFDate}/${formattedTDate}`);
+    console.log('Form fetched successfully:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
 };

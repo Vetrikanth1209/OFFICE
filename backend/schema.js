@@ -69,17 +69,17 @@ const signin = mongoose.model('signin', signinSchema);
 
 // FORM SCHEMA
 var formSchema = new mongoose.Schema({
-    fy_year: { type: Number },
-    month: { type: String },
-    head_cat: { type: Array },
-    sub_cat: { type: Array },
+    fy_year: { type: Object },
+    month: { type: Object },
+    head_cat: { type: Object },
+    sub_cat: { type: Object },
     date: { type: String },
     received_by: { type: Array },
     particulars: { type: String },
     bill_no: { type: String },
-    departments: { type: Array },
+    departments: { type: Object },
     amount: { type: String },
-    vehicles: { type: Array },
+    vehicles: { type: Object },
     files:{type:String},
     uploads:{type:Array}
 });

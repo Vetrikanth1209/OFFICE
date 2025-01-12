@@ -6,6 +6,7 @@ import Form from './form';
 import SignIn from './signin';
 import ConsolidateAndSummary from './consolidate_summary';
 import { Admin } from './admin';
+import Update from './update';
 
 const App = () => {
   const isLoggedIn = sessionStorage.getItem('logged');
@@ -23,6 +24,7 @@ const App = () => {
               <Route path='/cs' element={<ConsolidateAndSummary />} />
               <Route path='/table' element={<Table />} />
               <Route path='*' element={<Navigate to="/" />} />
+              <Route path="/update/:id" element={<Update />} />
             </>
           ) : (
             // Routes for non-admin users
@@ -31,6 +33,7 @@ const App = () => {
               <Route path='/form' element={<Form />} />
               <Route path='/cs' element={<ConsolidateAndSummary />} />
               <Route path='*' element={<Navigate to="/" />} />
+              <Route path="/update/:id" element={<Update />} />
             </>
           )
         ) : (
